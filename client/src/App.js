@@ -2,36 +2,56 @@ import React from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@mui/material";
 import steamEngine from "./images/steamEngine.png";
 import Games from "./components/Games/Games";
-import useStyles from "./styles";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
+const Heading = styled('h1')`
+  background-color: ${props => props.bg};
+  color: ${props => props.fg};
+`;
+
+const Subheading = Heading.withComponent('h2');
+
+const Quote = styled('blockquote')(props => ({
+  fontSize: props.size
+}));
+
+const Cite = styled('cite')(
+  {
+    fontWeight: 100
+  },
+  props => ({
+    fontWeight: props.weight
+  })
+);
+
+const Footer = styled('footer')`
+  border-top: 1px solid #ccc;
+  color: #ccc;
+  margin-top: 50px !important;
+  padding-top: 20px;
+`;
 
 const App = () => {
-  const classes = useStyles();
+  //const classes = useStyles();
 
   return (
-    <Container maxWidth="sm">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography  className={classes.heading} variant="h2" algin="center">
-          {" "}
-          Steam Engine
-        </Typography>
-        <img  className={classes.image} src={steamEngine} alt="steam engine" height="60" />
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid
-            container
-            justify="space-between"
-            alignItems="stretch"
-            spacing={3}
-          >
-            <Grid item xs={12} sm={7}>
-              <Games />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
-  );
+    <div css={css`background: #ddd;`}>
+    <div css={css({ padding: 10 })}>
+      <Heading bg="#008f68" fg="#fae042">
+        Quotations
+      </Heading>
+      <Subheading fg="#6db65b">
+        For React Developers
+      </Subheading>
+      <Quote size={28}>
+        I built this with <code>`emotion/react`</code> and <code>`emotion/styled`</code>!
+      </Quote>
+      <Cite weight={700}>Sammy</Cite>
+      <Footer>Shark Facts</Footer>
+    </div>
+  </div>
+);
 };
 
 export default App;
