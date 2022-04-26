@@ -7,11 +7,11 @@ import gamesRoutes from './routes/games.js';
 
 const app = express();
 
-app.use('/games', gamesRoutes)
 
 app.use(bodyParser.json({limit:"30mb", extend: true}))
 app.use(bodyParser.urlencoded({limit:"30mb", extend: true}))
 app.use(cors())
+app.use('/games', gamesRoutes)
 
 const CONNECTION_URL = "mongodb+srv://yerendi:gKnstbNnz@cluster0.z9sk5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
