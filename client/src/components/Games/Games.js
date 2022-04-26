@@ -1,10 +1,7 @@
 import React from "react";
 import Game from "./Game/Game";
-import useStyles from "./styles";
 
 const Games = () => {
-
-const classes = useStyles();
 
   return (
     <>

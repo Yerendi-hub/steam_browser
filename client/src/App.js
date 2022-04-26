@@ -1,36 +1,8 @@
 import React from "react";
-import { Container, AppBar, Typography, Grow, Grid } from "@mui/material";
 import steamEngine from "./images/steamEngine.png";
 import Games from "./components/Games/Games";
+import { Heading, Subheading, Quote, Cite, Footer } from "./styles"
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-
-const Heading = styled('h1')`
-  background-color: ${props => props.bg};
-  color: ${props => props.fg};
-`;
-
-const Subheading = Heading.withComponent('h2');
-
-const Quote = styled('blockquote')(props => ({
-  fontSize: props.size
-}));
-
-const Cite = styled('cite')(
-  {
-    fontWeight: 100
-  },
-  props => ({
-    fontWeight: props.weight
-  })
-);
-
-const Footer = styled('footer')`
-  border-top: 1px solid #ccc;
-  color: #ccc;
-  margin-top: 50px !important;
-  padding-top: 20px;
-`;
 
 const App = () => {
   //const classes = useStyles();
@@ -39,10 +11,9 @@ const App = () => {
     <div css={css`background: #ddd;`}>
     <div css={css({ padding: 10 })}>
       <Heading bg="#008f68" fg="#fae042">
-        Quotations
+        Quotations <Games />
       </Heading>
       <Subheading fg="#6db65b">
-        For React Developers
       </Subheading>
       <Quote size={28}>
         I built this with <code>`emotion/react`</code> and <code>`emotion/styled`</code>!
